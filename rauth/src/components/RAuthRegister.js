@@ -1,21 +1,22 @@
 import React from 'react';
-
+import firestore from "./Firestore.js"
 const RAuthRegister = () => {
 
   const submitForm = (event) => {
     event.preventDefault();
     // TODO: Add Firebase, below code is holdover from MongoDB.
-    // fetch("", {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({
-    //     netid: sessionStorage.getItem("netid"),
-    //     nonRutgersEmail: event.target.email.value,
-    //     fullName: event.target.name.value,
-    //     gradYear: event.target.year.value,
-    //     degreeType: event.target.degree.value
-    //   })
-    // });
+    const db = firebase.firestore();
+    db.settings({
+      timestampsInSnapshots: true
+    });
+    const userRef = db.collection("users").add({
+      netid: sessionStorage.getItem("netid"),
+      nonRutgersEmail: event.target.email.value,
+      fullName: event.target.name.value,
+      gradYear: event.target.year.value,
+      degreeType: event.target.degree.value
+    })
+
   }
  
   return(
