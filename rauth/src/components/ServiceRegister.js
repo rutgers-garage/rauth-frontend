@@ -1,11 +1,11 @@
-const ServiceRegister = ({ serviceRegistration }) => {
+import React from 'react' 
 
+const ServiceRegister = ({ serviceRegistration }) => {
+    const rAuthData = JSON.parse(sessionStorage.getItem("body"))
     return (
         <div>
-            <h1>Thanks!</h1>
-            <h1>Netid: </h1>
-            <h1>Name: </h1>
-            <h1>Grad Year: </h1>
+            
+            <div>{rAuthData.fullName.stringValue + "\t" + rAuthData.netid.stringValue + "\t" + rAuthData.nonRutgersEmail.stringValue + "\t" + rAuthData.gradYear.stringValue}</div>
             {/* ABOVE SHOULD PULL FROM SESSION STORAGE AND RENDER VALS */}
             {serviceRegistration}
         </div>

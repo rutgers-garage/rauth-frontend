@@ -1,10 +1,23 @@
 import React from 'react'
 
-import { ExampleComponent } from 'rauth-frontend'
+import Login from './components/Login'
 import 'rauth-frontend/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+
+  const Test = () => {
+    return <div>reeeeeeeee</div>
+  }
+  
+  const Test2 = () => {
+    return <div>WaWoWeeWa</div>
+  }
+
+  const testCallBack = async (netid) => {
+    return {exists: false}
+  }
+
+  return <Login verifyCallback={testCallBack} serviceRegistration={Test} redirectComponent={Test2} />
 }
 
 export default App
