@@ -5,7 +5,7 @@ const ServiceRegister = ({ serviceRegistration }) => {
     return (
         <div>
             
-            <div>{rAuthData.fullName.stringValue + "\t" + rAuthData.netid.stringValue + "\t" + rAuthData.nonRutgersEmail.stringValue + "\t" + rAuthData.gradYear.stringValue}</div>
+            <div>{rAuthData.fullName + "\t" + rAuthData.netid + "\t" + rAuthData.nonRutgersEmail + "\t" + rAuthData.gradYear}</div>
             {/* ABOVE SHOULD PULL FROM SESSION STORAGE AND RENDER VALS */}
             {serviceRegistration}
         </div>

@@ -5,11 +5,22 @@ import 'rauth-frontend/dist/index.css'
 
 const App = () => {
 
-  const Test = () => {
-    return <div>reeeeeeeee</div>
+  const ServiceRegistrationTest = () => {
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      console.log({test: e.target.test.value})
+    }
+    return (
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="test" placeholder="Test"/>
+          <input type="submit"/>
+        </form>
+      </div>
+    )
   }
   
-  const Test2 = () => {
+  const RedirectTest = () => {
     return <div>WaWoWeeWa</div>
   }
 
@@ -17,7 +28,7 @@ const App = () => {
     return {exists: false}
   }
 
-  return <Login verifyCallback={testCallBack} serviceRegistration={Test} redirectComponent={Test2} />
+  return <Login verifyCallback={testCallBack} serviceRegistration={<ServiceRegistrationTest/>} redirectComponent={<RedirectTest/>} />
 }
 
 export default App
