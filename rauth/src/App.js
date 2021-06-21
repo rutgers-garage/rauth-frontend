@@ -1,10 +1,34 @@
 import React from 'react'
 
-import { ExampleComponent } from 'rauth-frontend'
+import Login from './components/Login'
 import 'rauth-frontend/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+
+  const ServiceRegistrationTest = () => {
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      console.log({test: e.target.test.value})
+    }
+    return (
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="test" placeholder="Test"/>
+          <input type="submit"/>
+        </form>
+      </div>
+    )
+  }
+  
+  const RedirectTest = () => {
+    return <div>WaWoWeeWa</div>
+  }
+
+  const testCallBack = async (netid) => {
+    return {exists: false}
+  }
+
+  return <Login verifyCallback={testCallBack} serviceRegistration={<ServiceRegistrationTest/>} redirectComponent={<RedirectTest/>} />
 }
 
 export default App
