@@ -1,10 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import RAuthLogin from './components/RAuthLogin'
 
-import { ExampleComponent } from 'rauth-frontend'
-import 'rauth-frontend/dist/index.css'
+const database = new Set(['sao93'])
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  const [netId, setNetId] = useState(null)
+  const [jwt, setJwt] = useState(null)
+  const [error, setError] = useState(null)
+
+  return (
+    <div>
+      {!error && (
+        <RAuthLogin
+          onVerify={async function ({ netId }) {
+            return database.has(netId)
+          }}
+          onSuccess={function ({ jwt, netId }) {
+            console.log(jwt, netId);
+            setNetId(netId)
+            setJwt(jwt)
+          }}
+          onFailure={function (error) {
+            if (!error) {
+              return
+            }
+
+            setError(error)
+          }}
+        />
+      )}
+
+
+    </div>
+  )
 }
 
 export default App

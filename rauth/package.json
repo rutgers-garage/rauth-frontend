@@ -13,6 +13,7 @@
     "rauth-frontend": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
+    "react-google-login": "^5.2.2",
     "react-scripts": "file:../node_modules/react-scripts"
   },
   "devDependencies": {
